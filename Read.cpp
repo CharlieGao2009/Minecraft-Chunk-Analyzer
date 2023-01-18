@@ -21,7 +21,7 @@ int main()
 		for (int j=0;j<32;j++)
 		{
 			int id=4*((i&31)+(j&31)*32);
-			_chunk[i][j].pos=(DataUnsigned8[id+1]<<16)+(DataUnsigned8[id+2]<<8)+DataUnsigned8[id+3];
+			_chunk[i][j].pos=(DataUnsigned8[id+3]<<16)+(DataUnsigned8[id+2]<<8)+DataUnsigned8[id+1];
 			_chunk[i][j].sz=DataUnsigned8[id+4];
 		}
 	}
@@ -32,4 +32,3 @@ int main()
 	}
 	return 0;
 }
-//4 * ((x & 31) + (z & 31) * 32)
