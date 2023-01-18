@@ -1,21 +1,21 @@
 #include<bits/stdc++.h>
 #include<fstream>
 using namespace std;
-char Data[900100];
-unsigned short a[900100];
+char DataRaw[4100];
+uint8_t DataUnsigned8[4100];
 int main()
 {
 	ifstream file("first4K.sample",ios::binary|ios::in|ios::ate);
 	ifstream::pos_type n=file.tellg();
-	cout<<n<<endl;
+	freopen("offset.out","w",stdout);
 	file.seekg(0);
-	file.read((char*)(&Data),n);
-	Data[n]='\0';
+	file.read((char*)(&DataRaw),n);
+	DataRaw[n]='\0';
 	file.close();
-	string s(Data);
+	string s(DataRaw);
 	for (int i=0;i<s.size();i++)
-		a[i+1]=int(s[i]);
+		DataUnsigned8[i+1]=uint8_t(s[i]);
 	for (int i=1;i<=n;i++)
-		cout<<i<<' '<<a[i]<<endl;
+		cout<<i<<' '<<+DataUnsigned8[i]<<endl;
 	return 0;
 }
